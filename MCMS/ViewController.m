@@ -13,6 +13,7 @@
 @interface ViewController ()
 
 @property NSMutableArray *creatures;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -22,6 +23,9 @@
     [super viewDidLoad];
 
     MagicalCreature *creature = [[MagicalCreature alloc] init];
+    
+    self.creatures = [NSMutableArray arrayWithObjects: @"new creature", @"another creature", nil];
+    
     
 }
 
