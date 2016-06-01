@@ -10,6 +10,15 @@
 
 @implementation MagicalCreature
 
-
+- (instancetype)initWithName:(NSString *)name andBio:(NSString *)bio andImage:(NSString *)imageName andPowers:(NSString *)powers{
+    self = [super init];
+    if (self) {
+        self.name = name;
+        self.bio = bio;
+        self.imageName = imageName;
+        self.powers = powers;
+    }
+    return self;
+}
 
 @end

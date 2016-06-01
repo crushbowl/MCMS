@@ -10,7 +10,7 @@
 #import "MagicalCreature.h"
 
 
-@interface ViewController ()
+@interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property NSMutableArray *creatures;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -27,8 +27,20 @@
     self.creatures = [NSMutableArray arrayWithObjects: @"new creature", @"another creature", nil];
     
     
+    
 }
 
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.creatures.count;
+}
 
-
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellid"];
+    cell.textLabel.text = [self.creatures objectAtIndex:indexPath.row];
+    
+    return cell;
+    
+}
 @end
+
+
